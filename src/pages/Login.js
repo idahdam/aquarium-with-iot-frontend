@@ -24,6 +24,7 @@ const Login = () => {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const user = {
       identifier,
       password,
@@ -39,6 +40,7 @@ const Login = () => {
         ?.join(", ")
         || error.response.data.error.message);
     }
+    window.location.reload();
 
   };
 
