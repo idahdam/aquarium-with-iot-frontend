@@ -24,18 +24,29 @@ const theme = createTheme({
 });
 
 function App() {
+  const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
+
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Routes>
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/" element={<Mainpage />} />
-          <Route
-            exact
-            path="/*"
-            element={<Navigate to="/login" replace />}
-          />
-        </Routes>
+        {
+          token && user ? (
+            <Routes>
+              <Route exact path="/" element={<Mainpage />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          ) : (
+            <Routes>
+              <Route exact path="/login" element={<Login />} />
+              <Route
+                exact
+                path="/*"
+                element={<Navigate to="/login" replace />}
+              />
+            </Routes>
+          )
+        }
       </ThemeProvider>
     </>
   );

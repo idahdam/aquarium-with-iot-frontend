@@ -1,2 +1,2 @@
-export { default as Login } from './Login';
-export { default as Mainpage } from './Mainpage';
+export { default as Login } from './login';
+export { default as Mainpage } from './mainpage';
