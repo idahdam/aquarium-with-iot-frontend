@@ -2,7 +2,7 @@ import React from 'react'
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
-
+import moment from 'moment';
 
 const Chart = ({ data }) => {
   return (
@@ -12,7 +12,7 @@ const Chart = ({ data }) => {
           data={data}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="id" label={{ value: "Time", position: "insideBottomRight", dy: 10 }} />
+          <XAxis dataKey="attributes.timestamp" tickFormatter={(tick) => moment(tick).utc().format('DD/MM/YYYY-HH:mm')} label={{ value: "Time", position: "insideBottomRight", dy: 10 }} />
           <YAxis label={{ value: "Temperature", position: "insideLeft", angle: -90, dy: -10 }} />
           <Tooltip />
           <Legend />
