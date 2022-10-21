@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate, } from "react-router-dom";
 import {
   Login, Mainpage
 } from './pages';
@@ -29,25 +29,27 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        {
-          token && user ? (
-            <Routes>
-              <Route exact path="/" element={<Mainpage />} />
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
-          ) : (
-            <Routes>
-              <Route exact path="/login" element={<Login />} />
-              <Route
-                exact
-                path="/*"
-                element={<Navigate to="/login" replace />}
-              />
-            </Routes>
-          )
-        }
-      </ThemeProvider>
+      <Router>
+        <ThemeProvider theme={theme}>
+          {
+            token && user ? (
+              <Routes>
+                <Route exact path="/" element={<Mainpage />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
+            ) : (
+              <Routes>
+                <Route exact path="/login" element={<Login />} />
+                <Route
+                  exact
+                  path="/*"
+                  element={<Navigate to="/login" replace />}
+                />
+              </Routes>
+            )
+          }
+        </ThemeProvider>
+      </Router>
     </>
   );
 }
