@@ -15,7 +15,10 @@ const Mainpage = () => {
       const items = await itemService.getItems()
       setItems(items.data)
     }
-    fetchItems()
+
+    setInterval(() => {
+      fetchItems()
+    }, 10000)
   }, [])
 
   return (
