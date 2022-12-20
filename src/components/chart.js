@@ -5,14 +5,24 @@ import {
 import moment from 'moment';
 
 const Chart = ({ data }) => {
+  const reverse = [...data].reverse()
   return (
     <>
       <ResponsiveContainer width="100%" height={350}>
         <LineChart
-          data={data}
+          data={reverse}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="attributes.timestamp" tickFormatter={(tick) => moment(tick).utc().format('DD/MM/YYYY-HH:mm')} label={{ value: "Time", position: "insideBottomRight", dy: 10 }} />
+          <XAxis
+            dataKey="attributes.timestamp"
+            tickFormatter={(tick) => moment(tick).utc().format('DD/MM/YYYY-HH:mm')}
+            label={{
+              value: "Time",
+              position: "insideBottomRight",
+              dy: 10
+            }}
+
+          />
           <YAxis label={{ value: "Temperature", position: "insideLeft", angle: -90, dy: -10 }} />
           <Tooltip />
           <Legend />
