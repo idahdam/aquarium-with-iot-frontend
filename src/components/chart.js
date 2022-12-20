@@ -21,12 +21,15 @@ const Chart = ({ data }) => {
               position: "insideBottomRight",
               dy: 10
             }}
-
           />
           <YAxis label={{ value: "Temperature", position: "insideLeft", angle: -90, dy: -10 }} />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="attributes.temp_number" stroke="#8884d8"
+          <Line
+            type="monotone"
+            dataKey="attributes.temp_number"
+            stroke="#8884d8"
+            dot={false}
             name="Temperature" />
         </LineChart>
       </ResponsiveContainer>
