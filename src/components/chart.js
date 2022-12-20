@@ -5,7 +5,8 @@ import {
 import moment from 'moment';
 
 const Chart = ({ data }) => {
-  const reverse = [...data].reverse()
+  const reverse = [...data].reverse();
+
   return (
     <>
       <ResponsiveContainer width="100%" height={350}>
@@ -22,7 +23,7 @@ const Chart = ({ data }) => {
               dy: 10
             }}
           />
-          <YAxis label={{ value: "Temperature", position: "insideLeft", angle: -90, dy: -10 }} />
+          <YAxis label={{ value: "Temperature", position: "insideLeft", angle: -90, dy: -10 }} domain={[0, 50]} />
           <Tooltip />
           <Legend />
           <Line
