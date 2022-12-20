@@ -18,7 +18,7 @@ const Mainpage = () => {
 
     setInterval(() => {
       fetchItems()
-    }, 10000)
+    }, 2500)
   }, [])
 
   return (
